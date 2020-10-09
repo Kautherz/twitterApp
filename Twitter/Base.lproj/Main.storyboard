@@ -77,8 +77,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6P-Bx-2B1">
-                                            <rect key="frame" x="93" y="11" width="70" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6P-Bx-2B1">
+                                            <rect key="frame" x="93" y="11" width="69" height="18"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -91,6 +91,7 @@
                                         <constraint firstItem="x6P-Bx-2B1" firstAttribute="top" secondItem="Zkw-MQ-Bk9" secondAttribute="topMargin" id="DQ5-q2-PcB"/>
                                         <constraint firstItem="dbi-du-jIj" firstAttribute="leading" secondItem="bZM-tx-DcO" secondAttribute="trailing" constant="8" id="G7l-Bt-AE4"/>
                                         <constraint firstItem="bZM-tx-DcO" firstAttribute="leading" secondItem="Zkw-MQ-Bk9" secondAttribute="leadingMargin" id="SF5-X5-4d5"/>
+                                        <constraint firstItem="x6P-Bx-2B1" firstAttribute="top" secondItem="Zkw-MQ-Bk9" secondAttribute="topMargin" id="Xqj-Ew-r3C"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="bZM-tx-DcO" secondAttribute="bottom" id="aUw-Va-Fwa"/>
                                         <constraint firstItem="dbi-du-jIj" firstAttribute="trailing" secondItem="Zkw-MQ-Bk9" secondAttribute="trailingMargin" id="iFy-dt-chY"/>
                                         <constraint firstItem="bZM-tx-DcO" firstAttribute="top" secondItem="Zkw-MQ-Bk9" secondAttribute="topMargin" id="nry-yC-iNe"/>

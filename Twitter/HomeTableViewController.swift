@@ -22,14 +22,15 @@ class HomeTableViewController: UITableViewController {
     func loadTweet(){
         
         let myURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let myParams = ["count": 11]
+        let myParams = ["count": 10]
         
-        TwitterAPICaller.client?.getDictionariesRequest(url: myURL, parameters: myParams, success: { (tweets:[NSDictionary]) in
-            self.tweetArray.removeAll() //empties entire array
-            for tweet in tweets{
-                self.tweetArray.append(tweet)
-            }
-            self.tableView.reloadData() //anytime call to API made and additional info is added to tweetArray, it reloads the data
+        TwitterAPICaller.client?.getDictionariesRequest(url: myURL, parameters: myParams, success:
+            { (tweets:[NSDictionary]) in
+                self.tweetArray.removeAll() //empties entire array
+                for tweet in tweets{
+                    self.tweetArray.append(tweet)
+                }
+                self.tableView.reloadData() //anytime call to API made and additional info is added to tweetArray, it reloads the data
             
             
         }, failure: { (Error) in
