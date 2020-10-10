@@ -18,16 +18,16 @@ class HomeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadTweet()
-        myRefreshControl.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
+        loadTweets()
+        myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
     }
     
-    @objc func loadTweet(){
+    @objc func loadTweets(){
         
+        numberOfTweets = 20
         let myURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let myParams = ["count": 20]
-        
+        let myParams = ["count": numberOfTweets]
         
         TwitterAPICaller.client?.getDictionariesRequest(url: myURL, parameters: myParams, success:
             { (tweets:[NSDictionary]) in
@@ -38,10 +38,35 @@ class HomeTableViewController: UITableViewController {
                 self.tableView.reloadData() //anytime call to API made and additional info is added to tweetArray, it reloads the data
                 self.myRefreshControl.endRefreshing()
             
-            
         }, failure: { (Error) in
             print("Could not retrieve tweets.")
         })
+    }
+    
+    func loadMoreTweets(){
+        
+        let myURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        numberOfTweets = numberOfTweets + 20 //adds new set of 20 tweets onto old tweets
+        let myParams = ["count": numberOfTweets]
+        
+        TwitterAPICaller.client?.getDictionariesRequest(url: myURL, parameters: myParams, success:
+            { (tweets:[NSDictionary]) in
+                self.tweetArray.removeAll() //empties entire array
+                for tweet in tweets{
+                    self.tweetArray.append(tweet)
+                }
+                self.tableView.reloadData() //anytime call to API made and additional info is added to tweetArray, it reloads the data
+ 
+        }, failure: { (Error) in
+            print("Could not retrieve tweets.")
+        })
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) { //what we want to happen when user reaches end of page
+        if indexPath.row + 1 == tweetArray.count {
+            loadMoreTweets() //at end of page, run loadMoreTweets()
+        }
     }
 
     
