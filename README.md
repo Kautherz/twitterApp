@@ -2,6 +2,10 @@
 
 **twitterApp** is a basic twitter app to read your tweets.
 
+# twitterApp - Part I
+
+This is a basic twitter app to read your tweets.
+
 Time spent: **4** hours spent in total
 
 ## User Stories
